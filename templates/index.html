@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Lobby {% endblock %}
+
+{% block content %}
+<div class="row vh-100 align-items-center">
+    <form id="lobby" class="col form-control text-center">
+        <div class="mb-3">
+            <span class="fs-3">Digita el codigo de la sala a entrar.</span>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" id="room-name-input" type="number" placeholder="15125" required>
+        </div>
+        <input class="btn btn-primary" id="room-name-submit" type="submit">
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#lobby').on('submit', function (e) {
+            e.preventDefault();
+            var roomName = $('#room-name-input').val();
+            window.location.pathname = '/chat/' + roomName + '/';
+        });
+    });
+</script>
+{% endblock %}
